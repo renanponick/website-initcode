@@ -4,14 +4,14 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1em 16em;
+    padding: 0.5em 16em;
     background-color: #000000;
     color: white;
     position: relative;
 }
 
 .logo {
-    width: 120px;
+    width: 3rem;
 }
 
 nav ul {
@@ -88,7 +88,7 @@ header nav a li {
     text-align: center;
     padding: 5px 15px;
     list-style: none;
-    font-size: 23px;
+    font-size: 1.2em;
 }
 
 header nav a li:hover {
@@ -104,7 +104,7 @@ header nav a li:hover {
         align-items: flex-start;
     }
     nav ul a li {
-        font-size: 18px;
+        font-size: 1.2em;
         text-align: left;
     }
     header nav a:not(:first-child)::before {
@@ -115,7 +115,7 @@ header nav a li:hover {
         justify-content: right;
     }
     .close span {
-        font-size: 30px;
+        font-size: 1.2em;
         padding: 0 12px;
         background-color: #ff4d00;
         border-radius: 50px;

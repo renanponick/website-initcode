@@ -47,7 +47,6 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <img src={character} alt='Foto de Renan Ponick' />
       </div>
 
       <div className='container third-section'>

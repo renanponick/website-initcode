@@ -1,3 +1,5 @@
+/* a tela está com textos muito grandes precisa diinuir */
+
 .home {
     .container {
       display: flex;
@@ -21,7 +23,7 @@
     }
   
     .first-section {
-      font-size: 28px;
+      font-size: 1.2rem;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -44,7 +46,7 @@
   
       a {
         padding: 10px 20px;
-        font-size: 18px;
+        font-size: 1.2rem;
         background-color: #FF4D00;
         color: #FFF;
         text-decoration: none;
@@ -52,7 +54,7 @@
         transition: 0.3s;
   
         @media (max-width: 768px) {
-          font-size: 16px;
+          font-size: 1.1rem;
           padding: 8px 15px;
         }
       }
@@ -66,26 +68,25 @@
       display: flex;
       flex-wrap: wrap;
       padding-top: 3em;
-      padding-bottom: 0;
+      padding-bottom: 3em;
       align-items: start;
 
       .text {
-        width: 60%;
-        font-size: 25px;
+        font-size: 1.2rem;
         @media (max-width: 1024px) {
           width: 100%;
         }
 
         h1{
           @media (max-width: 1824px) {
-            font-size: 50px;
+            font-size: 2.5rem;
           }
           @media (max-width: 1724px) {
-            font-size: 40px;
+            font-size: 2rem;
           }
 
           @media (max-width: 768px) {
-            font-size: 28px;
+            font-size: 1.2rem;
             text-align: center;
           }
         }
@@ -93,32 +94,20 @@
         p {
           text-align: justify;
           @media (max-width: 1824px) {
-              font-size: 22px;
+              font-size: 1.2rem;
           }
           @media (max-width: 1724px) {
-              font-size: 20px;
+              font-size: 1.2rem;
           }
   
           @media (max-width: 768px) {
-            font-size: 18px;
+            font-size: 1.1rem;
             text-align: center;
           }
         }
   
         @media (max-width: 768px) {
-          font-size: 18px;
-        }
-      }
-  
-      img {
-        width: 35%;
-        @media (max-width: 1524px) {
-          height: 80%;
-        }
-  
-        @media (max-width: 768px) {
-          width: 80%;
-          margin-top: 20px;
+          font-size: 1.1rem;
         }
       }
     }
@@ -139,7 +128,7 @@
   
         .udemy-detalhes-texto {
           padding: 20px;
-          font-size: 18px;
+          font-size: 1.2rem;
   
           h2 {
             font-size: 1.4em;
@@ -188,7 +177,7 @@
       .udemy-destaques {
         width: 35%;
         text-align: center;
-        font-size: 18px;
+        font-size: 1.2rem;
         
         .udemy-topicos {
           display: flex;
@@ -228,7 +217,7 @@
               width: 90%;
                display: block;
               padding: 10px 15px;
-              font-size: 18px;
+              font-size: 1.2rem;
               background-color: #FF4D00;
               color: #FFF;
               border-radius: 5px;
@@ -286,11 +275,11 @@
       .card-text {
         display: flex;
         flex-direction: column;
-        font-size: 22px;
+        font-size: 1.2rem;
         text-align: justify;
     
         @media (max-width: 768px) {
-          font-size: 16px;
+          font-size: 1.1rem;
         }
 
         h1 {
@@ -307,7 +296,7 @@
         a {
           text-align: center;
           padding: 10px 20px;
-          font-size: 20px;
+          font-size: 1.2rem;
           background-color: #FF4D00;
           color: #FFF;
           text-decoration: none;
@@ -316,7 +305,7 @@
           transition: 0.3s;
     
           @media (max-width: 768px) {
-            font-size: 16px;
+            font-size: 1.1rem;
             padding: 8px 15px;
             margin: 50px 0;
           }

@@ -1,5 +1,5 @@
 // eslint-disable-next-line react/prop-types
-export default function Midia({ size = 50 }) {
+export default function Midia({ size = 30 }) {
     return (
         <div className='midia'>
             <a href='https://www.youtube.com/channel/UCdHlZugvc3w3hfHBSTLTD5w?sub_confirmation=1'>
