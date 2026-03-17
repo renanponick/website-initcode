@@ -10,8 +10,8 @@ export default function Recomendation() {
   const [error, setError] = useState(null);
 
   const categoryLabels = {
-    1: "R$ 1.000 - R$ 2.000",
-    2: "R$ 2.000 - R$ 3.000",
+    1: "R$ 1.000 - R$ 3.000",
+    2: "R$ 3.000 - R$ 6.000",
     3: "Acima de R$ 6.000",
   };
 
