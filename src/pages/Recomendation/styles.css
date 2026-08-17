@@ -1,239 +1,292 @@
-.recomendation {
+.recomendation-page {
+  min-height: 100vh;
+  background: #0c0f1a;
+  color: #f7f1e2;
+  font-family: "Manrope", -apple-system, sans-serif;
+}
+
+.recomendation-page * {
+  box-sizing: border-box;
+}
+
+.recomendation-page a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.recomendation-page img {
+  display: block;
+  max-width: 100%;
+}
+
+.recomendation-page .hero,
+.recomendation-page .social-strip,
+.recomendation-page .content-card,
+.recomendation-page .page-footer {
+  width: min(1280px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.recomendation-page .hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(48px, 9vh, 96px) clamp(20px, 5vw, 64px) 44px;
+}
+
+.recomendation-page .hero::before {
+  content: "";
+  position: absolute;
+  inset: -20% auto auto 50%;
+  width: 900px;
+  height: 900px;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(201, 151, 76, 0.16) 0%, transparent 62%);
+  pointer-events: none;
+}
+
+.recomendation-page .eyebrow {
+  margin: 0 0 16px;
+  color: #c9974c;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.recomendation-page .hero h1 {
+  margin: 0 0 22px;
+  max-width: 17ch;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(36px, 5.6vw, 68px);
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.01em;
+}
+
+.recomendation-page .hero h1 span {
+  color: #c9974c;
+  font-style: italic;
+}
+
+.recomendation-page .hero-text {
+  max-width: 58ch;
+  margin: 0;
+  color: #c7cce0;
+  font-size: clamp(15px, 2vw, 18px);
+  line-height: 1.65;
+}
+
+.recomendation-page .social-strip {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px clamp(20px, 5vw, 64px);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.recomendation-page .social-copy {
   display: flex;
   flex-direction: column;
+  gap: 6px;
+  max-width: 52ch;
+}
+
+.recomendation-page .social-copy strong {
+  font-size: 15px;
+  font-weight: 700;
+  color: #f7f1e2;
+}
+
+.recomendation-page .social-copy span {
+  color: #c7cce0;
+  line-height: 1.6;
+}
+
+.recomendation-page .content-card {
+  margin-top: 28px;
+  padding: clamp(28px, 4vw, 46px);
+  background: #151b30;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  box-shadow: 0 24px 60px -34px rgba(0, 0, 0, 0.7);
+}
+
+.recomendation-page .content-card + .content-card {
+  margin-top: 22px;
+}
+
+.recomendation-page .content-card > h2 {
+  margin: 0 0 12px;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(24px, 3.4vw, 34px);
+  font-weight: 500;
+}
+
+.recomendation-page .content-card > p {
+  max-width: 68ch;
+  margin: 0 0 30px;
+  color: #c7cce0;
+  line-height: 1.7;
+}
+
+.recomendation-page .category-block {
+  margin-bottom: 40px;
+}
+
+.recomendation-page .category-block h3,
+.recomendation-page .setup {
+  margin: 0 0 18px;
+  color: #c9974c;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.recomendation-page .category-grid,
+.recomendation-page .things-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.recomendation-page .thing {
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+  background: #f7f1e2;
+  color: #1b1a16;
+  border-radius: 18px;
+  box-shadow: 0 18px 40px -22px rgba(0, 0, 0, 0.6);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.recomendation-page .thing:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 26px 46px -18px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(201, 151, 76, 0.16);
+}
+
+.recomendation-page .thing-image-wrapper {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #eae2cc;
+  margin-bottom: 14px;
+}
+
+.recomendation-page .thing-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.recomendation-page .thing h4 {
+  margin: 0 0 12px;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.28;
+  flex: 1;
+}
+
+.recomendation-page .links {
+  display: flex;
+  gap: 10px;
+  padding-top: 14px;
+  border-top: 1px dashed rgba(27, 26, 22, 0.16);
+}
+
+.recomendation-page .links a {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 999px;
+  background: #c9974c;
+  color: #1b1300;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
+  text-align: center;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.recomendation-page .links a:hover {
+  transform: translateY(-1px);
+  background: #dfaE64;
+}
+
+.recomendation-page .page-footer {
+  display: flex;
+  gap: 20px;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 34px 0 42px;
+}
 
-  /* ── Social Media ── */
-  .social-media {
-    display: flex;
-    background-color: #fff;
-    color: #000;
-    padding: 7em 0;
-    justify-content: center;
-    align-items: center;
+.recomendation-page .page-footer h3 {
+  margin: 0 0 6px;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.recomendation-page .page-footer p {
+  margin: 0;
+  color: #9199b5;
+  line-height: 1.6;
+  max-width: 44ch;
+}
+
+.recomendation-page .page-footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.recomendation-page .page-footer nav a {
+  padding: 9px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  color: #c7cce0;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.recomendation-page .page-footer nav a:hover {
+  border-color: #c9974c;
+  background: rgba(201, 151, 76, 0.16);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .recomendation-page .hero,
+  .recomendation-page .social-strip,
+  .recomendation-page .content-card,
+  .recomendation-page .page-footer {
+    width: min(100%, calc(100% - 24px));
+  }
+
+  .recomendation-page .social-strip,
+  .recomendation-page .page-footer {
     flex-direction: column;
-    text-align: center;
-    width: 100%;
-    font-size: 20px;
-
-    h1 {
-      font-size: 1.5em;
-      width: 60%;
-      .act {
-        color: #ff4d00;
-      }
-      @media (max-width: 768px) {
-        width: 90%;
-      }
-      @media (max-width: 1524px) {
-        font-size: 30px;
-      }
-    }
-
-    .midia {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-      @media (max-width: 768px) {
-        flex-wrap: wrap;
-      }
-      a {
-        font-size: 5em;
-        transition: 0.3s;
-      }
-      img {
-        font-size: 5em;
-      }
-      a:hover {
-        scale: 1.2;
-      }
-    }
+    align-items: flex-start;
   }
 
-  /* ── Notebooks Section ── */
-  .notebooks {
-    background-image: url("/src/assets/notebook.jpg");
-    background-size: cover;
-    background-position: center;
-
-    .overlay {
-      background-color: rgba(0, 0, 0, 0.75);
-    }
+  .recomendation-page .page-footer nav {
+    justify-content: flex-start;
   }
-  .overlay {
-    display: flex;
+
+  .recomendation-page .links {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-size: 20px;
-    padding: 2em 12em;
-
-    @media (max-width: 1524px) {
-      padding: 5em 3px;
-      font-size: 18px;
-    }
-
-    p,
-    h1,
-    h3 {
-      width: 60%;
-      z-index: 2;
-      @media (max-width: 768px) {
-        width: 90%;
-      }
-    }
-
-    a {
-      color: #ff4d00;
-    }
   }
+}
 
-  /* ── Setup Title ── */
-  .setup {
-    font-size: 1.5em;
-    text-align: center;
-    margin-bottom: 1em;
-    @media (max-width: 1524px) {
-      font-size: 30px;
-    }
-  }
-
-  /* ── Category Grid (notebooks) ── */
-  .category-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 24px;
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto 2em;
-    padding: 0 1em;
-
-    @media (max-width: 768px) {
-      gap: 16px;
-    }
-  }
-
-  /* ── Generic Items List (setup section) ── */
-  .things-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 24px;
-
-    @media (max-width: 1524px) {
-      padding: 1em 3%;
-    }
-    @media (max-width: 768px) {
-      gap: 16px;
-    }
-  }
-
-  /* ── Product Card ── */
-  .thing {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px 16px 16px;
-    background-color: #fff;
-    border-radius: 14px;
-    color: #111;
-    width: calc(20% - 20px);
-    min-width: 200px;
-    max-width: 260px;
-    text-align: center;
-    text-decoration: none;
-    box-shadow:
-      0 2px 8px rgba(0, 0, 0, 0.08),
-      0 0 0 1px rgba(0, 0, 0, 0.06);
-    transition:
-      transform 0.25s ease,
-      box-shadow 0.25s ease;
-
-    @media (max-width: 768px) {
-      width: calc(50% - 12px);
-      max-width: 340px;
-    }
-
-    &:hover {
-      transform: translateY(-4px);
-      box-shadow:
-        0 8px 24px rgba(0, 0, 0, 0.14),
-        0 0 0 1px rgba(0, 0, 0, 0.06);
-    }
-
-    /* Product image */
-    .thing-image-wrapper {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 10px;
-      overflow: hidden;
-      margin-bottom: 14px;
-    }
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      padding: 10px;
-    }
-
-    h2 {
-      font-size: 15px;
-      font-weight: 600;
-      margin: 0 0 12px;
-      line-height: 1.4;
-      color: #111;
-      flex: 1;
-    }
-
-    /* Store buttons */
-    .links {
-      display: flex;
-      gap: 10px;
-      margin-top: auto;
-      width: 100%;
-
-      @media (max-width: 768px) {
-        flex-direction: column;
-      }
-    }
-
-    .links a {
-      flex: 1;
-      background-color: #ff4d00;
-      color: #fff;
-      padding: 9px 12px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 0.3px;
-      transition:
-        background-color 0.2s ease,
-        transform 0.15s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      &:hover {
-        background-color: #e04400;
-        transform: scale(1.04);
-      }
-
-      &:active {
-        transform: scale(0.97);
-      }
-    }
-  }
-
-  .space-bottom {
-    margin-bottom: 5em;
+@media (prefers-reduced-motion: reduce) {
+  .recomendation-page * {
+    transition: none !important;
+    scroll-behavior: auto !important;
   }
 }
