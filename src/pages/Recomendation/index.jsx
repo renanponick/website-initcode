@@ -68,6 +68,8 @@ export default function Recomendation() {
       title: categoryLabels[1],
       intro: "Aqui estão os notebooks que eu realmente recomendo para estudar, trabalhar e evoluir sem dor de cabeça.",
       items: recommendedNotebooks,
+      link: "/notebooks",
+      linkLabel: "Como escolher um notebook",
     },
     {
       id: "produtos",
@@ -81,11 +83,9 @@ export default function Recomendation() {
     <main className="recomendation-page">
       <header className="hero">
         <p className="eyebrow">Recomendações reais, sem letra miúda</p>
-        <h1>
-          Cada <span>holofote</span>, uma recomendação.
-        </h1>
+        <h1>Vitrine virtual de recomendações.</h1>
         <p className="hero-text">
-          Uma vitrine virtual baseada na minha curadoria: notebooks, produtos úteis e itens que eu considero valiosos para diferentes perfis.
+          Uma curadoria pensada para notebooks, produtos úteis e itens do meu setup, com visual mais limpo e leitura melhor no celular.
         </p>
       </header>
 
@@ -100,8 +100,18 @@ export default function Recomendation() {
 
         {!loading && !error && sections.map((section) => (
           <div key={section.id} className="category-block" id={section.id}>
-            <h3>{section.title}</h3>
-            <p className="category-intro">{section.intro}</p>
+            <div className="category-head">
+              <div>
+                <h3>{section.title}</h3>
+                <p className="category-intro">{section.intro}</p>
+              </div>
+              {section.link && (
+                <a className="category-link" href={section.link}>
+                  {section.linkLabel}
+                </a>
+              )}
+            </div>
+
             {section.items.length ? (
               <div className="category-grid">
                 {section.items.map((item) => (
@@ -116,9 +126,9 @@ export default function Recomendation() {
       </section>
 
       <section className="content-card">
-        <h2 className="setup">Caso tenha interesse em conhecer o meu Setup</h2>
+        <h2 className="setup">Meu Setup</h2>
         {setupItems.length ? (
-          <div className="things-list space-bottom">
+          <div className="things-list">
             {setupItems.map((item) => (
               <ProductCard key={item.id} item={item} />
             ))}
@@ -132,9 +142,6 @@ export default function Recomendation() {
         <div>
           <h3>Vitrine</h3>
           <p>Curadoria independente. Produtos e preços podem mudar.</p>
-        </div>
-        <div className="footer-note">
-          <span>Sem sessão de redes sociais aqui para manter a página limpa no mobile.</span>
         </div>
       </footer>
     </main>
