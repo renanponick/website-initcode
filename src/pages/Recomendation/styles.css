@@ -83,24 +83,6 @@
   margin-top: 18px;
 }
 
-.recomendation-page .content-card > h2 {
-  margin: 0 0 12px;
-  font-family: "Fraunces", Georgia, serif;
-  font-size: clamp(22px, 3vw, 32px);
-  font-weight: 500;
-}
-
-.recomendation-page .content-card > p {
-  max-width: 68ch;
-  margin: 0 0 28px;
-  color: #c7cce0;
-  line-height: 1.7;
-}
-
-.recomendation-page .category-block {
-  margin-bottom: 36px;
-}
-
 .recomendation-page .category-head {
   display: flex;
   align-items: flex-end;
@@ -109,8 +91,7 @@
   margin-bottom: 18px;
 }
 
-.recomendation-page .category-block h3,
-.recomendation-page .setup {
+.recomendation-page .category-head h2 {
   margin: 0 0 8px;
   color: #c9974c;
   font-family: "IBM Plex Mono", monospace;
@@ -221,11 +202,6 @@
   transition: transform 0.2s ease, background 0.2s ease;
 }
 
-.recomendation-page .links a:hover {
-  transform: translateY(-1px);
-  background: #dfaE64;
-}
-
 .recomendation-page .state-text {
   margin: 10px 0 0;
   color: #c7cce0;
@@ -233,28 +209,6 @@
 
 .recomendation-page .state-text.error {
   color: #ffb4b4;
-}
-
-.recomendation-page .page-footer {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  justify-content: space-between;
-  padding: 28px 0 40px;
-}
-
-.recomendation-page .page-footer h3 {
-  margin: 0 0 6px;
-  font-family: "Fraunces", Georgia, serif;
-  font-size: 18px;
-  font-weight: 500;
-}
-
-.recomendation-page .page-footer p {
-  margin: 0;
-  color: #9199b5;
-  line-height: 1.6;
-  max-width: 44ch;
 }
 
 @media (max-width: 900px) {
@@ -303,12 +257,5 @@
 
   .recomendation-page .links {
     grid-template-columns: 1fr;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .recomendation-page * {
-    transition: none !important;
-    scroll-behavior: auto !important;
   }
 }
