@@ -1,4 +1,4 @@
-import "./styles.css";
+import "../../pages/Recomendation/styles.css";
 
 export default function ProductCard({ item }) {
   return (
