@@ -130,7 +130,7 @@
   flex-direction: column;
   min-height: 100%;
   padding: 14px;
-  background: #f7f1e2;
+  background: #ffffff;
   color: #1b1a16;
   border-radius: 18px;
   box-shadow: 0 18px 40px -22px rgba(0, 0, 0, 0.6);
@@ -147,7 +147,8 @@
   aspect-ratio: 1 / 1;
   border-radius: 12px;
   overflow: hidden;
-  background: #eae2cc;
+  background: #ffffff;
+  border: 1px solid rgba(27, 26, 22, 0.08);
   margin-bottom: 12px;
 }
 
@@ -156,6 +157,7 @@
   height: 100%;
   object-fit: contain;
   padding: 10px;
+  background: #ffffff;
 }
 
 .recomendation-page .thing-image-placeholder {
@@ -166,6 +168,7 @@
   color: #8a8672;
   font-family: "IBM Plex Mono", monospace;
   font-size: 12px;
+  background: #ffffff;
 }
 
 .recomendation-page .thing h4 {
