@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import "./styles.css";
 import { fetchProducts } from "../../utils/products";
+import ProductCard from "../../components/ProductCard";
 
 const categoryLabels = {
   1: "Notebooks recomendados",
@@ -57,64 +58,24 @@ export default function Recomendation() {
     };
   }, []);
 
-  const setupItems = useMemo(
-    () => products.filter((item) => item.category === "0"),
-    [products],
-  );
-
-  const recommendedNotebooks = useMemo(
-    () => products.filter((item) => item.category === "1"),
-    [products],
-  );
-
-  const recommendedProducts = useMemo(
-    () => products.filter((item) => item.category === "2"),
-    [products],
-  );
+  const setupItems = useMemo(() => products.filter((item) => item.category === "0"), [products]);
+  const recommendedNotebooks = useMemo(() => products.filter((item) => item.category === "1"), [products]);
+  const recommendedProducts = useMemo(() => products.filter((item) => item.category === "2"), [products]);
 
   const sections = [
     {
       id: "notebooks",
       title: categoryLabels[1],
-      intro:
-        "Aqui estão os notebooks que eu realmente recomendo para estudar, trabalhar e evoluir sem dor de cabeça.",
+      intro: "Aqui estão os notebooks que eu realmente recomendo para estudar, trabalhar e evoluir sem dor de cabeça.",
       items: recommendedNotebooks,
     },
     {
       id: "produtos",
       title: categoryLabels[2],
-      intro:
-        "Produtos que valem a pena independente do preço, porque a variação deles muda muito ao longo do tempo.",
+      intro: "Produtos que valem a pena independente do preço, porque a variação deles muda muito ao longo do tempo.",
       items: recommendedProducts,
     },
   ];
-
-  function productCard(item) {
-    return (
-      <article className="thing" key={item.id}>
-        <div className="thing-image-wrapper">
-          {item.img ? (
-            <img src={item.img} alt={item.title} loading="lazy" />
-          ) : (
-            <div className="thing-image-placeholder">Sem imagem</div>
-          )}
-        </div>
-        <h4>{item.title}</h4>
-        <div className="links">
-          {item.linkAmazon && (
-            <a href={item.linkAmazon} target="_blank" rel="noreferrer nofollow sponsored">
-              Amazon
-            </a>
-          )}
-          {item.linkMercadoLivre && (
-            <a href={item.linkMercadoLivre} target="_blank" rel="noreferrer nofollow sponsored">
-              Mercado Livre
-            </a>
-          )}
-        </div>
-      </article>
-    );
-  }
 
   return (
     <main className="recomendation-page">
@@ -142,7 +103,11 @@ export default function Recomendation() {
             <h3>{section.title}</h3>
             <p className="category-intro">{section.intro}</p>
             {section.items.length ? (
-              <div className="category-grid">{section.items.map(productCard)}</div>
+              <div className="category-grid">
+                {section.items.map((item) => (
+                  <ProductCard key={item.id} item={item} />
+                ))}
+              </div>
             ) : (
               <p className="state-text">Nenhum item encontrado nesta categoria.</p>
             )}
@@ -153,7 +118,11 @@ export default function Recomendation() {
       <section className="content-card">
         <h2 className="setup">Caso tenha interesse em conhecer o meu Setup</h2>
         {setupItems.length ? (
-          <div className="things-list space-bottom">{setupItems.map(productCard)}</div>
+          <div className="things-list space-bottom">
+            {setupItems.map((item) => (
+              <ProductCard key={item.id} item={item} />
+            ))}
+          </div>
         ) : (
           <p className="state-text">Nenhum item de setup encontrado.</p>
         )}

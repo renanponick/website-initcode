@@ -20,7 +20,6 @@
 }
 
 .recomendation-page .hero,
-.recomendation-page .social-strip,
 .recomendation-page .content-card,
 .recomendation-page .page-footer {
   width: min(1280px, calc(100% - 40px));
@@ -76,34 +75,6 @@
   line-height: 1.65;
 }
 
-.recomendation-page .social-strip {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  justify-content: space-between;
-  padding: 22px clamp(20px, 5vw, 64px);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.recomendation-page .social-copy {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  max-width: 52ch;
-}
-
-.recomendation-page .social-copy strong {
-  font-size: 15px;
-  font-weight: 700;
-  color: #f7f1e2;
-}
-
-.recomendation-page .social-copy span {
-  color: #c7cce0;
-  line-height: 1.6;
-}
-
 .recomendation-page .content-card {
   margin-top: 28px;
   padding: clamp(28px, 4vw, 46px);
@@ -137,7 +108,7 @@
 
 .recomendation-page .category-block h3,
 .recomendation-page .setup {
-  margin: 0 0 18px;
+  margin: 0 0 12px;
   color: #c9974c;
   font-family: "IBM Plex Mono", monospace;
   font-size: 12px;
@@ -145,17 +116,23 @@
   text-transform: uppercase;
 }
 
+.recomendation-page .category-intro {
+  margin: 0 0 22px;
+  color: #c7cce0;
+  line-height: 1.65;
+}
+
 .recomendation-page .category-grid,
 .recomendation-page .things-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
 }
 
 .recomendation-page .thing {
   display: flex;
   flex-direction: column;
-  padding: 18px;
+  padding: 16px;
   background: #f7f1e2;
   color: #1b1a16;
   border-radius: 18px;
@@ -164,13 +141,13 @@
 }
 
 .recomendation-page .thing:hover {
-  transform: translateY(-6px);
+  transform: translateY(-4px);
   box-shadow: 0 26px 46px -18px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(201, 151, 76, 0.16);
 }
 
 .recomendation-page .thing-image-wrapper {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1 / 1;
   border-radius: 12px;
   overflow: hidden;
   background: #eae2cc;
@@ -180,7 +157,18 @@
 .recomendation-page .thing-image-wrapper img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  padding: 10px;
+}
+
+.recomendation-page .thing-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  color: #8a8672;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
 }
 
 .recomendation-page .thing h4 {
@@ -216,6 +204,15 @@
   background: #dfaE64;
 }
 
+.recomendation-page .state-text {
+  margin: 10px 0 0;
+  color: #c7cce0;
+}
+
+.recomendation-page .state-text.error {
+  color: #ffb4b4;
+}
+
 .recomendation-page .page-footer {
   display: flex;
   gap: 20px;
@@ -231,56 +228,33 @@
   font-weight: 500;
 }
 
-.recomendation-page .page-footer p {
+.recomendation-page .page-footer p,
+.recomendation-page .footer-note {
   margin: 0;
   color: #9199b5;
   line-height: 1.6;
   max-width: 44ch;
 }
 
-.recomendation-page .page-footer nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: flex-end;
-}
-
-.recomendation-page .page-footer nav a {
-  padding: 9px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 999px;
-  color: #c7cce0;
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 12px;
-  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
-}
-
-.recomendation-page .page-footer nav a:hover {
-  border-color: #c9974c;
-  background: rgba(201, 151, 76, 0.16);
-  transform: translateY(-1px);
-}
-
 @media (max-width: 768px) {
   .recomendation-page .hero,
-  .recomendation-page .social-strip,
   .recomendation-page .content-card,
   .recomendation-page .page-footer {
     width: min(100%, calc(100% - 24px));
   }
 
-  .recomendation-page .social-strip,
   .recomendation-page .page-footer {
     flex-direction: column;
     align-items: flex-start;
   }
 
-  .recomendation-page .page-footer nav {
-    justify-content: flex-start;
-  }
-
   .recomendation-page .links {
     flex-direction: column;
+  }
+
+  .recomendation-page .category-grid,
+  .recomendation-page .things-list {
+    grid-template-columns: 1fr;
   }
 }
 
