@@ -19,7 +19,7 @@ jobs:
 
       - name: Build web-app
         run: |
-          yarn --frozen-lockfile
+          yarn install --frozen-lockfile
           yarn build
           cp ./dist/index.html ./dist/404.html
           if [ -f ./CNAME ]; then cp ./CNAME ./dist/CNAME; fi
@@ -30,3 +30,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           keep_files: true
+          cname: site.initcode.com.br
