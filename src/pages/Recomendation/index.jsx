@@ -90,9 +90,6 @@ export default function Recomendation() {
       <header className="hero">
         <p className="eyebrow">Recomendações reais, sem letra miúda</p>
         <h1>Vitrine virtual de recomendações.</h1>
-        <p className="hero-text">
-          Uma curadoria pensada para notebooks, produtos úteis e itens do meu setup, com leitura limpa e navegação simples.
-        </p>
       </header>
 
       {groupedSections.map((section) => (
