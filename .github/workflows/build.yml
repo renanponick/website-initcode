@@ -4,22 +4,29 @@ on:
   push:
     branches:
       - main
+      - teste
 
 jobs:
   deploy:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
         with:
-          node-version: '18.x'
+          node-version: "18.x"
+          cache: yarn
+
       - name: Build web-app
         run: |
-          yarn
+          yarn --frozen-lockfile
           yarn build
           cp ./dist/index.html ./dist/404.html
+          if [ -f ./CNAME ]; then cp ./CNAME ./dist/CNAME; fi
+
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+          keep_files: true
