@@ -134,9 +134,6 @@ export default function Recomendation() {
     <main className="recomendation-page">
       <header className="hero">
         <p className="eyebrow">Recomendações reais, sem letra miúda</p>
-        <h1>
-          Cada <em>holofote</em>, uma recomendação.
-        </h1>
         <p className="hero-sub">
           Nada aqui é aleatório: só produtos que eu testei, uso no dia a dia e voltaria a comprar.
         </p>
