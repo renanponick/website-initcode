@@ -7,13 +7,13 @@ const sectionConfig = [
   {
     id: "setup",
     title: "Meu Setup",
-    description: "Itens que eu uso no dia a dia e que fazem parte da minha bancada.",
+    subtitle: "Os itens que eu uso e que fazem parte da minha bancada.",
     category: "0",
   },
   {
     id: "notebooks",
     title: "Notebooks recomendados",
-    description: "Modelos que eu indico para estudar, trabalhar e evoluir com segurança.",
+    subtitle: "Modelos que eu indico para estudar, trabalhar e evoluir com segurança.",
     category: "1",
     link: "/notebooks",
     linkLabel: "Como escolher um notebook",
@@ -21,8 +21,14 @@ const sectionConfig = [
   {
     id: "produtos",
     title: "Produtos recomendados",
-    description: "Produtos úteis que entram e saem de preço com frequência, mas continuam valendo a pena.",
+    subtitle: "Itens úteis que valem a pena acompanhar, mesmo com variação de preço.",
     category: "2",
+  },
+  {
+    id: "livros",
+    title: "Livros que eu indico",
+    subtitle: "Leituras que ajudam a construir base, visão e consistência ao longo da jornada.",
+    category: "9",
   },
 ];
 
@@ -97,7 +103,7 @@ export default function Recomendation() {
           <div className="category-head">
             <div>
               <h2>{section.title}</h2>
-              <p className="category-intro">{section.description}</p>
+              <p className="category-intro">{section.subtitle}</p>
             </div>
             {section.link && (
               <a className="category-link" href={section.link}>
