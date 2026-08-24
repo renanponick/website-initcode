@@ -5,12 +5,6 @@ import ProductCard from "../../components/ProductCard";
 
 const sectionConfig = [
   {
-    id: "setup",
-    title: "Meu Setup",
-    subtitle: "Os itens que eu uso e que fazem parte da minha bancada.",
-    category: "0",
-  },
-  {
     id: "notebooks",
     title: "Notebooks recomendados",
     subtitle: "Modelos que eu indico para estudar, trabalhar e evoluir com segurança.",
@@ -19,16 +13,22 @@ const sectionConfig = [
     linkLabel: "Como escolher um notebook",
   },
   {
+    id: "livros",
+    title: "Livros que eu indico",
+    subtitle: "Leituras que ajudam a construir base, visão e consistência ao longo da jornada.",
+    category: "9",
+  },
+  {
     id: "produtos",
     title: "Produtos recomendados",
     subtitle: "Itens úteis que valem a pena acompanhar, mesmo com variação de preço.",
     category: "2",
   },
   {
-    id: "livros",
-    title: "Livros que eu indico",
-    subtitle: "Leituras que ajudam a construir base, visão e consistência ao longo da jornada.",
-    category: "9",
+    id: "setup",
+    title: "Meu Setup",
+    subtitle: "Os itens que eu uso e que fazem parte da minha bancada.",
+    category: "0",
   },
 ];
 
@@ -139,11 +139,6 @@ export default function Recomendation() {
         </p>
       </header>
 
-      <p className="disclosure">
-        Esta página contém links de afiliados (Amazon e Mercado Livre). Se você comprar por aqui, eu posso
-        receber uma pequena comissão — sem custo extra para você.
-      </p>
-
       <section className="shelf-area" ref={shelfRef} onMouseMove={handleMouseMove}>
         <div className="shelf-area__spotlight" ref={spotlightRef} />
 
@@ -205,6 +200,11 @@ export default function Recomendation() {
             ))}
         </div>
       </section>
+
+      <footer className="disclosure disclosure--footer">
+        Esta página contém links de afiliados (Amazon e Mercado Livre). Se você comprar por aqui, eu posso
+        receber uma pequena comissão — sem custo extra para você.
+      </footer>
     </main>
   );
 }
