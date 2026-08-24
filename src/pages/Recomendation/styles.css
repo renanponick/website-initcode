@@ -69,10 +69,10 @@
 }
 .recomendation-page .eyebrow {
   font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--accent);
+  font-size: clamp(18px, 2.2vw, 26px);
+  line-height: 1.15;
+  letter-spacing: 0.03em;
+  color: #fff;
   margin: 0 0 16px;
 }
 .recomendation-page .hero-sub {
@@ -174,7 +174,7 @@
 .recomendation-page .section__title {
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: clamp(22px, 3vw, 30px);
+  font-size: clamp(24px, 3.6vw, 36px);
   margin: 0 0 6px;
 }
 .recomendation-page .section__intro {
@@ -303,6 +303,18 @@
 }
 .recomendation-page .card__links a.secondary:hover {
   background: rgba(27, 26, 22, 0.06);
+}
+
+@media (min-width: 1200px) {
+  .recomendation-page .grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1199px) and (min-width: 768px) {
+  .recomendation-page .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 /* ============ SKELETON ============ */
