@@ -44,13 +44,13 @@
 .recomendation-page .quicknav,
 .recomendation-page .shelf-content,
 .recomendation-page .section {
-  width: 100%;
+  width: min(100%, 1180px);
+  margin-inline: auto;
 }
 .recomendation-page .hero {
   position: relative;
-  padding: clamp(50px, 9vh, 96px) clamp(20px, 6vw, 64px) 46px;
+  padding: clamp(50px, 9vh, 96px) 0 46px;
   overflow: hidden;
-  margin: 0;
 }
 .recomendation-page .hero::before {
   content: "";
@@ -80,6 +80,7 @@
   letter-spacing: 0.03em;
   color: #fff;
   margin: 0 0 16px;
+  padding-inline: clamp(20px, 6vw, 64px);
 }
 .recomendation-page .hero-sub {
   font-size: clamp(15px, 1.8vw, 17px);
@@ -87,6 +88,7 @@
   color: #cfcfcf;
   max-width: 52ch;
   margin: 0;
+  padding-inline: clamp(20px, 6vw, 64px);
 }
 
 /* ============ DISCLOSURE ============ */
@@ -156,11 +158,11 @@
 .recomendation-page .shelf-content {
   position: relative;
   z-index: 1;
-  margin: 0;
+  margin: 0 auto;
 }
 
 .recomendation-page .section {
-  padding: 50px clamp(20px, 6vw, 64px) 0;
+  padding: 50px 0 0;
   scroll-margin-top: 76px;
 }
 .recomendation-page .section:last-child {
@@ -373,12 +375,36 @@
   background: var(--accent-soft);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 767px) {
   .recomendation-page .grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+  .recomendation-page .section {
+    padding-top: 36px;
   }
   .recomendation-page .section__head {
     align-items: flex-start;
+  }
+  .recomendation-page .card__body {
+    padding: 12px;
+    gap: 8px;
+  }
+  .recomendation-page .card__name {
+    font-size: 14px;
+  }
+  .recomendation-page .card__links {
+    gap: 6px;
+  }
+  .recomendation-page .card__links a {
+    padding: 8px 6px;
+    font-size: 10.5px;
+  }
+}
+
+@media (max-width: 420px) {
+  .recomendation-page .grid {
+    grid-template-columns: 1fr;
   }
 }
 
