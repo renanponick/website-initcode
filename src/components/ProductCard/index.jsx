@@ -20,7 +20,7 @@ export default function ProductCard({ item }) {
           )}
           {item?.linkMercadoLivre && (
             <a
-              className="secondary mercadolivre"
+              className="secondary"
               href={item.linkMercadoLivre}
               target="_blank"
               rel="noreferrer nofollow sponsored"
