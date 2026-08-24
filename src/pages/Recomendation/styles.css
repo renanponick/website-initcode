@@ -296,7 +296,6 @@
   border-radius: 999px;
   text-decoration: none;
   transition: background 0.2s, transform 0.2s;
-  white-space: nowrap;
 }
 .recomendation-page .card__links a:hover {
   background: var(--accent-hover);
