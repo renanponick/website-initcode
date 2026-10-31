@@ -1,88 +1,80 @@
-import { Link, useLocation } from 'react-router-dom';
-import './styles.css'
 import { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import PageMeta from '../../components/PageMeta';
+import './styles.css';
 
-const cursos = [
+const courses = [
   {
-    id: "node",
-    title: 'Node.js',
-    description: 'Quer iniciar na programação sem pagar NADA? Acesse aqui a minha playlist de Node, onde começaremos do zero, explicando os fundamentos do Node.js: o que é, como instalar e por que é uma escolha popular para o desenvolvimento de servidores e APIs. Você aprenderá a criar seus primeiros scripts em JavaScript no servidor, manipulando variáveis, funções e estruturas de controle de fluxo.',
-    video: 'https://www.youtube.com/embed/videoseries?si=zfO9UOs51tMxMneN&list=PLI8zu4XrMjAxe5dGI2tiQ8MQAfdT4fGjM'
+    id: 'node', title: 'Node.js', summary: 'JavaScript no servidor, fundamentos da plataforma e criação de APIs.',
+    description: 'Comece pela instalação e pelos primeiros scripts. Depois, avance por variáveis, funções, controle de fluxo e fundamentos usados em servidores e APIs.',
+    embed: 'https://www.youtube.com/embed/videoseries?si=zfO9UOs51tMxMneN&list=PLI8zu4XrMjAxe5dGI2tiQ8MQAfdT4fGjM',
+    playlist: 'https://www.youtube.com/playlist?list=PLI8zu4XrMjAxe5dGI2tiQ8MQAfdT4fGjM',
   },
   {
-    id: 'c++',
-    title: 'C++',
-    description: 'Começaremos do zero, explicando os conceitos básicos de C++: como declarar variáveis,'
-      + 'atribuir valores a elas e realizar operações simples. Você aprenderá a linguagem de programação '
-      + 'C++ de forma gradual, com explicações claras e exemplos práticos para ajudar a solidificar seu '
-      + 'entendimento.',
-    video: 'https://www.youtube.com/embed/videoseries?si=w8IacHiT3RCUqYbh&list=PLI8zu4XrMjAy3MBlM7qyPq6OTOA_iZ7tG'
+    id: 'c-plus-plus', title: 'C++', summary: 'Fundamentos, lógica e controle mais próximo do sistema.',
+    description: 'Aprenda variáveis, operações e estruturas de controle de forma gradual, com exemplos para consolidar cada conceito.',
+    embed: 'https://www.youtube.com/embed/videoseries?si=w8IacHiT3RCUqYbh&list=PLI8zu4XrMjAy3MBlM7qyPq6OTOA_iZ7tG',
+    playlist: 'https://www.youtube.com/playlist?list=PLI8zu4XrMjAy3MBlM7qyPq6OTOA_iZ7tG',
   },
   {
-    id: 'c#',
-    title: 'C#',
-    description: 'Prepare-se para dominar uma das linguagens mais poderosas e versáteis do mundo da programação. '
-      + 'Vamos começar do zero, explorando os fundamentos da linguagem. Aprenderemos como criar variáveis, compreender estruturas '
-      + 'de condição e repetição. '
-      + 'Você aprenderá a definir e chamar funções, passar argumentos e retornar valores, permitindo uma maior flexibilidade e eficiência em seus programas. '
-      + 'A partir daí, avançaremos para um dos pilares mais importantes da programação moderna: a orientação a objetos.',
-    video: 'https://www.youtube.com/embed/videoseries?si=xPUvbUZ89p4gzoVq&list=PLI8zu4XrMjAwbI0qpgEMKF4PotrvWhkKh'
+    id: 'c-sharp', title: 'C#', summary: 'Tipos, orientação a objetos e ecossistema .NET.',
+    description: 'Comece com variáveis, condições e repetições. Depois, avance para funções e os fundamentos da orientação a objetos.',
+    embed: 'https://www.youtube.com/embed/videoseries?si=xPUvbUZ89p4gzoVq&list=PLI8zu4XrMjAwbI0qpgEMKF4PotrvWhkKh',
+    playlist: 'https://www.youtube.com/playlist?list=PLI8zu4XrMjAwbI0qpgEMKF4PotrvWhkKh',
   },
   {
-    id: 'git',
-    title: 'Git, GitHub e GitHub Pages',
-    description: 'Começaremos do zero, explicando os conceitos básicos do Git: o que é versionamento, por que é importante e como começar a usá-lo em seus projetos. '
-      + 'Você aprenderá a criar e gerenciar repositórios no GitHub, colaborar com outros desenvolvedores, abrir e revisar pull requests e muito mais. '
-      + 'Finalmente, fecharemos a playlist com um mergulho emocionante na hospedagem de sites estáticos no GitHub Pages.',
-    video: 'https://www.youtube.com/embed/videoseries?si=rEphQscu-RhfeD5x&list=PLI8zu4XrMjAzva6GTrDPiWd_RwXZFzKj6'
-  }
-]
+    id: 'git', title: 'Git, GitHub e GitHub Pages', summary: 'Versionamento, colaboração e publicação de sites estáticos.',
+    description: 'Entenda o versionamento, gerencie repositórios, conheça o fluxo de colaboração e publique um projeto no GitHub Pages.',
+    embed: 'https://www.youtube.com/embed/videoseries?si=rEphQscu-RhfeD5x&list=PLI8zu4XrMjAzva6GTrDPiWd_RwXZFzKj6',
+    playlist: 'https://www.youtube.com/playlist?list=PLI8zu4XrMjAzva6GTrDPiWd_RwXZFzKj6',
+  },
+];
 
 export default function Courses() {
-
   const location = useLocation();
 
   useEffect(() => {
-    if (location.hash) {
-      const target = document.getElementById(location.hash.replace('#', ''));
-      if (target) {
-        setTimeout(() => {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 300); // aguarda renderização
-      }
+    if (!location.hash) return;
+    const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      target.focus({ preventScroll: true });
     }
-  }, [location]);
+  }, [location.hash]);
 
   return (
-    <div className="courses">
-      <div className="cards">
-        <h1>Cursos Gratúitos pra você</h1>
-        <Link to="/language-recomendation" className="link">
-          Não sabe qual linguagem escolher? Clica aqui que eu te ajudo!
-        </Link>
-        {cursos.map((curso, index) => (
-          <div id={curso.id} key={index} className={`card ${index % 2 !== 0 ? "white" : "black"}`}>
-            <h2>{curso.title}</h2>
-            <p>{curso.description}</p>
-            <iframe
-              className='iframe'
-              src={curso.video}
-              title={curso.title}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen>
-            </iframe>
-            {
-              curso.title === 'Node.js'
-              && <Link to="/#udemy">
-                Quer certificado?
-              </Link>}
+    <div className="courses-page">
+      <PageMeta title="Cursos gratuitos" description="Playlists gratuitas de Node.js, C++, C#, Git, GitHub e GitHub Pages." />
+      <section className="courses-page__hero page-section">
+        <div className="app-container">
+          <div className="page-header">
+            <p className="eyebrow">Cursos gratuitos</p>
+            <h1>Escolha uma trilha e comece a praticar</h1>
+            <p>Playlists organizadas para acompanhar no seu ritmo. Se estiver em dúvida, use o questionário para comparar interesses.</p>
           </div>
-        ))}
-        <div>
-          <Link to="/language-recomendation" className="link">
-            Não sabe qual linguagem escolher? Clica aqui que eu te ajudo!
-          </Link>
+          <nav className="course-index" aria-label="Índice de cursos">
+            {courses.map((course) => <a key={course.id} href={`#${course.id}`}>{course.title}</a>)}
+          </nav>
+          <Link to="/language-recomendation" className="button button--secondary">Descobrir uma linguagem</Link>
         </div>
+      </section>
+
+      <div className="app-container course-list">
+        {courses.map((course) => (
+          <article id={course.id} key={course.id} className="course-card page-section" tabIndex="-1">
+            <div className="course-card__copy">
+              <p className="eyebrow">Playlist gratuita</p>
+              <h2>{course.title}</h2>
+              <strong>{course.summary}</strong>
+              <p>{course.description}</p>
+              <a className="button button--secondary" href={course.playlist} target="_blank" rel="noopener noreferrer">Abrir playlist no YouTube</a>
+              {course.id === 'node' && <Link className="button button--text" to="/#udemy">Ver opção com certificado</Link>}
+            </div>
+            <div className="course-card__video">
+              <iframe src={course.embed} title={`Playlist de ${course.title} no YouTube`} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+            </div>
+          </article>
+        ))}
       </div>
     </div>
   );

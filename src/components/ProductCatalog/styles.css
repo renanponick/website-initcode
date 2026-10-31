@@ -1,0 +1,26 @@
+.catalog-toolbar { display: flex; margin-bottom: 2rem; padding: 1rem; align-items: center; gap: 0.75rem; flex-wrap: wrap; border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); }
+.catalog-toolbar label { font-weight: 700; }
+.catalog-toolbar select { min-height: 44px; padding: 0.55rem 2.25rem 0.55rem 0.75rem; border: 1px solid #777; border-radius: var(--radius-sm); background: #111; color: #fff; }
+.catalog-toolbar span { margin-left: auto; color: var(--color-muted); }
+.catalog-sections { display: grid; gap: 3rem; }
+.catalog-section { scroll-margin-top: 100px; }
+.catalog-section__header { margin-bottom: 1.25rem; }
+.catalog-section__header h2 { margin-bottom: 0.35rem; }
+.catalog-section__header p { margin: 0; color: var(--color-muted); }
+.catalog-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); }
+.catalog-card { display: flex; min-width: 0; overflow: hidden; flex-direction: column; border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-card); }
+.catalog-card__media { display: grid; min-height: 220px; place-items: center; background: #fff; }
+.catalog-card__media img { width: 100%; height: 220px; object-fit: contain; }
+.catalog-card__placeholder { display: grid; width: 100%; min-height: 220px; place-items: center; background: linear-gradient(135deg, #252525, #111); color: var(--color-muted); font-weight: 700; }
+.catalog-card__content { display: flex; height: 100%; padding: 1rem; flex-direction: column; align-items: flex-start; }
+.catalog-card__content h3 { margin: 0.65rem 0 0.35rem; }
+.catalog-card__content p { margin: 0.25rem 0; color: var(--color-muted); }
+.catalog-card__badge { padding: 0.25rem 0.55rem; border-radius: 999px; background: #3a251d; color: #ffb18d; font-size: 0.8rem; font-weight: 700; }
+.catalog-card__price { color: #fff !important; font-size: 1.05rem; font-weight: 700; }
+.catalog-card__content small { color: var(--color-muted); }
+.catalog-card__links { display: flex; width: 100%; margin-top: auto; padding-top: 1rem; flex-wrap: wrap; gap: 0.5rem; }
+.catalog-card__links .button { flex: 1 1 150px; font-size: 0.88rem; }
+.catalog-card__unavailable { font-size: 0.88rem; }
+.catalog-disclosure { margin-top: 2rem; color: var(--color-muted); font-size: 0.9rem; }
+@media (max-width: 480px) { .catalog-toolbar span { width: 100%; margin-left: 0; } }
+

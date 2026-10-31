@@ -1,25 +1,27 @@
-// eslint-disable-next-line react/prop-types
-export default function Midia({ size = 50 }) {
-    return (
-        <div className='midia'>
-            <a href='https://www.youtube.com/channel/UCdHlZugvc3w3hfHBSTLTD5w?sub_confirmation=1'>
-                <img src={`https://img.icons8.com/?size=${size}&id=19318&format=png&color=FF3D00`} alt='Youtube' />
-            </a>
-            <a href='https://github.com/initcodeexemplos'>
-                <img src={`https://img.icons8.com/material-rounded/${size}/000000/github.png`} alt='GitHub' />
-            </a>
-            <a href='https://www.instagram.com/init_code'>
-                <img src={`https://img.icons8.com/?size=${size}&id=Xy10Jcu1L2Su&format=png&color=000000`} alt='Instagram' />
-            </a>
-            <a href='https://www.facebook.com/people/Init-Code/61556939284040/'>
-                <img src={`https://img.icons8.com/color/${size}/000000/facebook.png`} alt='Facebook' />
-            </a>
-            <a href='https://www.tiktok.com/@init.code'>
-                <img src={`https://img.icons8.com/color/${size}/000000/tiktok.png`} alt='Tiktok' />
-            </a>
-            <a href='https://www.linkedin.com/in/renan-ponick-9107a5174/'>
-                <img src={`https://img.icons8.com/?size=${size}&id=13930&format=png&color=0288D1`} alt='Linkedin' />
-            </a>
-        </div>
-    )
+import PropTypes from 'prop-types';
+import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaTiktok, FaYoutube } from 'react-icons/fa';
+
+const networks = [
+  { name: 'YouTube', url: 'https://www.youtube.com/channel/UCdHlZugvc3w3hfHBSTLTD5w?sub_confirmation=1', Icon: FaYoutube },
+  { name: 'GitHub', url: 'https://github.com/initcodeexemplos', Icon: FaGithub },
+  { name: 'Instagram', url: 'https://www.instagram.com/init_code', Icon: FaInstagram },
+  { name: 'Facebook', url: 'https://www.facebook.com/people/Init-Code/61556939284040/', Icon: FaFacebook },
+  { name: 'TikTok', url: 'https://www.tiktok.com/@init.code', Icon: FaTiktok },
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/renan-ponick-9107a5174/', Icon: FaLinkedin },
+];
+
+export default function Midia({ size = 28 }) {
+  return (
+    <ul className="social-links" aria-label="Redes sociais da Init Code">
+      {networks.map(({ name, url, Icon }) => (
+        <li key={name}>
+          <a href={url} target="_blank" rel="noopener noreferrer" aria-label={`${name} da Init Code (abre em nova aba)`}>
+            <Icon size={size} aria-hidden="true" focusable="false" />
+          </a>
+        </li>
+      ))}
+    </ul>
+  );
 }
+
+Midia.propTypes = { size: PropTypes.number };
