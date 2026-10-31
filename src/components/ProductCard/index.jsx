@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import "../../pages/Recomendation/styles.css";
 
 export default function ProductCard({ item }) {
@@ -10,14 +11,21 @@ export default function ProductCard({ item }) {
           <div className="card__noimg">Sem imagem</div>
         )}
       </div>
+
       <div className="card__body">
         <h4 className="card__name">{item?.title}</h4>
+
         <div className="card__links">
           {item?.linkAmazon && (
-            <a href={item.linkAmazon} target="_blank" rel="noreferrer nofollow sponsored">
+            <a
+              href={item.linkAmazon}
+              target="_blank"
+              rel="noreferrer nofollow sponsored"
+            >
               Amazon
             </a>
           )}
+
           {item?.linkMercadoLivre && (
             <a
               className="secondary"
@@ -33,3 +41,12 @@ export default function ProductCard({ item }) {
     </article>
   );
 }
+
+ProductCard.propTypes = {
+  item: PropTypes.shape({
+    img: PropTypes.string,
+    title: PropTypes.string.isRequired,
+    linkAmazon: PropTypes.string,
+    linkMercadoLivre: PropTypes.string,
+  }).isRequired,
+};
